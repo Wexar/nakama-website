@@ -115,6 +115,15 @@ gulp.task('browserSync', function() {
   });
 });
 
+//heroku
+gulp.task('serveprod', function() {
+  connect.server({
+    root: "./",
+    port: process.env.PORT || 5000, // localhost:5000
+    livereload: false
+  });
+});
+
 // Dev task
 gulp.task('dev', ['css', 'js', 'browserSync'], function() {
   gulp.watch('./scss/*.scss', ['css']);
